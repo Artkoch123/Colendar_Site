@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <script src="/static/js/filter.js"></script>
+        <main class="main">
+             <body>
+    <!-- Фильтр -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <div class="filter-group">
+                <label for="date-filter">Сортировать по дате:</label>
+                <select id="date-filter" class="filter-select">
+                    <option value="ascending">По возрастанию</option>
+                    <option value="descending">По убыванию</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="category-filter">Фильтровать по направлению:</label>
+                <select id="category-filter" class="filter-select">
+                    <option value="all">Все направления</option>
+                    <option value="digital">Цифровизация</option>
+                    <option value="marketing">Маркетинг</option>
+                    <option value="networking">Нетворкинг</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <div class="events-container" id="events-container">
+
+            <div class="events-container">
+                <!-- Карточка мероприятия 1 -->
+
+                 {% for item in event %}
+                <div class="event-card">
+                    <img src={{ item.put_foto }}
+                        alt="Фото мероприятия" class="event-image">
+                    <div class="event-content">
+                        <h3 class="event-title">{{ item.name }}</h3>
+                        <p class="event-description">{{ item.description }}</p>
+                        <div class="event-date">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 2V5" stroke="#888" stroke-width="1.5" stroke-miterlimit="10"
+                                    stroke-linecap="round" />
+                                <path d="M16 2V5" stroke="#888" stroke-width="1.5" stroke-miterlimit="10"
+                                    stroke-linecap="round" />
+                                <path d="M3.5 9.09H20.5" stroke="#888" stroke-width="1.5" stroke-miterlimit="10"
+                                    stroke-linecap="round" />
+                                <path
+                                    d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+                                    stroke="#888" stroke-width="1.5" stroke-miterlimit="10" />
+                                <path d="M15.6947 13.7H15.7037" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M15.6947 16.7H15.7037" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M11.9955 13.7H12.0045" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M11.9955 16.7H12.0045" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M8.29431 13.7H8.30329" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M8.29431 16.7H8.30329" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            {{ item.data }}, {{ item.time }}
+                        </div>
+                        <a href="#" class="event-button">Подробнее</a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!-- Карточка мероприятия 3 -->
+                <div class="event-card">
+                    <img src="https://avatars.mds.yandex.net/i?id=c6aa50121d80ac59c13f5af535c5787e30ca90c3-7552332-images-thumbs&n=13"
+                        alt="Фото мероприятия" class="event-image">
+                    <div class="event-content">
+                        <h3 class="event-title">Нетворкинг для предпринимателей</h3>
+                        <p class="event-description">Оффлайн-встреча для владельцев бизнеса с возможностью установить
+                            полезные деловые контакты и обменяться опытом.</p>
+                        <div class="event-date">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 2V5" stroke="#888" stroke-width="1.5" stroke-miterlimit="10"
+                                    stroke-linecap="round" />
+                                <path d="M16 2V5" stroke="#888" stroke-width="1.5" stroke-miterlimit="10"
+                                    stroke-linecap="round" />
+                                <path d="M3.5 9.09H20.5" stroke="#888" stroke-width="1.5" stroke-miterlimit="10"
+                                    stroke-linecap="round" />
+                                <path
+                                    d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+                                    stroke="#888" stroke-width="1.5" stroke-miterlimit="10" />
+                                <path d="M15.6947 13.7H15.7037" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M15.6947 16.7H15.7037" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M11.9955 13.7H12.0045" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M11.9955 16.7H12.0045" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M8.29431 13.7H8.30329" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M8.29431 16.7H8.30329" stroke="#888" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            5 ноября 2023, 18:30
+                        </div>
+                        <a href="#" class="event-button">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">       
+            <div class="footer-column">
+                <h3>Мероприятия</h3>
+                <ul>
+                    <li><a href="#">Конференции</a></li>
+                    <li><a href="#">Вебинары</a></li>
+                    <li><a href="#">Мастер-классы</a></li>
+                    <li><a href="#">Нетворкинг</a></li>
+                    <li><a href="#">Все мероприятия</a></li>
+                </ul>
+            </div>
+           
+            <div class="footer-column">
+                <h3>О нас</h3>
+                <ul>
+                    <li><a href="#">О платформе</a></li>
+                    <li><a href="#">Партнеры</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Обратная связь</h3>
+                <ul>
+                    <li><a href="#">Телефон: +7 800 888 88 88</a></li>
+                    <li><a href="#">Почта: qwerty@mail.ru</a></li>
+                </ul>
+            </div>
+    </footer>
+</body>
+
+</html>
+
+{% endblock %}

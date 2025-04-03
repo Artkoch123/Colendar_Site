@@ -1,0 +1,50 @@
+/* Стили для профиля */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.profile-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+}
+
+.profile-info {
+    margin-left: 20px;
+}
+
+.profile-name {
+    font-size: 28px;
+    color: #333;
+    margin: 0;
+}
+
+.profile-status {
+    font-size: 16px;
+    color: #888;
+}
+
+.achivments {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5%;
+}
+
+.achiv_img {
+    max-width: 150px;
+    max-width: 150px;
+    padding: 30px;
+}

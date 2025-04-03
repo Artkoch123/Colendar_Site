@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/style/style_actve.css">
+<script src="/static/js/achivment_popup.js"></script>
+<html lang="en">
+<body>
+    <main class="main" style="padding-top: 10%;">
+        <container class="container">
+
+            <!-- Профиль пользователя -->
+      <div class="profile-container">
+          <div class="profile-header">
+              <div class="profile-image">
+                  <img src="https://avatars.mds.yandex.net/i?id=e54ae3f787cf29aa21be07d6762ecc0dfaa02fa2-5014002-images-thumbs&n=13"
+                      alt="фото пользователя" class="profile-img">
+              </div>
+              {% if user.is_active == true %}
+              <div class="profile-info">
+                  <h1 class="profile-name">{{ user.surname }} {{ user.name }}</h1>
+                  <p class="profile-status">{{ user.role }}</p>
+              </div>
+              {% else %}
+               <div class="profile-info">
+                  <h1 class="profile-name">С начало надо зарегистрироваться или войти</h1>
+              </div>
+              {% endif %}
+          </div>
+      </div>
+
+
+            <!-- Достижения -->
+       <section class="achievements">
+           <h2 class="section-title">Мои достижения</h2>
+           <div class="achievements-grid">
+               <div class="achievement-item" data-modal="modal1">
+                   <img src="/static/img/win.webp" alt="">
+                   <p>Мастер мероприятий</p>
+               </div>
+               <div class="achievement-item" data-modal="modal2">
+                   <img src="/static/img/win.webp" alt="">
+                   <p>Конкурсный лидер</p>
+               </div>
+               <div class="achievement-item" data-modal="modal3">
+                   <img src="/static/img/win.webp" alt="">
+                   <p>Супер организатор</p>
+               </div>
+               <div class="achievement-item" data-modal="modal4">
+                   <img src="/static/img/win.webp" alt="">
+                   <p>Профессионал</p>
+               </div>
+               <div class="achievement-item" data-modal="modal5">
+                   <img src="/static/img/win.webp" alt="">
+                   <p>Новичок</p>
+               </div>
+           </div>
+       </section>
+
+          <!-- Popup окна -->
+  <div id="modal1" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="/static/img/win.webp" alt="">
+          <h2>Мастер мероприятий</h2>
+          <p>Проведите 50 успешных мероприятий.</p>
+      </div>
+  </div>
+
+  <div id="modal2" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Конкурсный лидер</h2>
+          <p>Выиграйте 20 конкурсов подряд.</p>
+      </div>
+  </div>
+
+  <div id="modal3" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Супер организатор</h2>
+          <p>Организуйте 10 мероприятий с высокой оценкой участников.</p>
+      </div>
+  </div>
+
+  <div id="modal4" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Профессионал</h2>
+          <p>Участвуйте в 50 мероприятиях.</p>
+      </div>
+  </div>
+
+  <div id="modal5" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Новичок</h2>
+          <p>Зарегистрируйтесь на сайте и примите участие в первом мероприятии.</p>
+      </div>
+  </div>
+      {% if user.role == "организатор" %}
+     <form action="/addeventform" method="post">
+        <button class="button" type="submit">
+            <p>Добавить мероприятие</p>
+        </button>
+    </form>
+     {% endif %}
+    </main>
+</body>
+
+</html>
+{% endblock %}
