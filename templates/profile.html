@@ -103,6 +103,19 @@
             <p>Добавить мероприятие</p>
         </button>
     </form>
+      {% if user.role == "организатор" %}
+     <form action="/addeventform" method="post">
+        <button class="button" type="submit">
+            <p>Добавить мероприятие</p>
+        </button>
+    </form>
+     {% endif %}
+            {% if user.role == "администратор" %}
+     <form action="/addnewsform" method="post">
+        <button class="button" type="submit">
+            <p>Добавить мероприятие</p>
+        </button>
+    </form>
      {% endif %}
     </main>
 </body>
