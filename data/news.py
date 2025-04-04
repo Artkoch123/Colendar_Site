@@ -10,9 +10,9 @@ class News(SqlAlchemyBase, UserMixin):
     __tablename__ = 'news'
 
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
-    name = sqlalchemy.Column(sqlalchemy.String, nullable=True),
-    description = sqlalchemy.Column(sqlalchemy.String, nullable=True),
-    data = sqlalchemy.Column(sqlalchemy.String, nullable=True),
+    name = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    description = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    data = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     put_foto = sqlalchemy.Column(sqlalchemy.String, nullable=True)
 
     def __repr__(self):

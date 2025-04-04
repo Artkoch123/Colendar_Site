@@ -15,6 +15,7 @@ from forms.registerform import RegisterForm
 from forms.addeventform import AddEventForm
 from data.Usersdb import User
 from data.event import Event
+from data.news import News
 
 
 app = Flask(__name__)
@@ -48,7 +49,8 @@ def sent_email(adress):
 def main():
     db_sess = db_session.create_session()
     userr = db_sess.query(User).filter(User.is_active == True).first()
-    return render_template('news.html', title='Главное', user=userr)
+    news = db_sess.query(News).all()
+    return render_template('news.html', title='Главное', user=userr, news=news)
 
 
 # страница Профиля
@@ -67,7 +69,33 @@ def active():
     event = db_sess.query(Event).all()
     return render_template('active.html', title='Активности', user=userr, event=event)
 
-# страница добовление активность
+# страница просмотра активности
+@app.route("/select_act/<int:id>")
+def select_act(id):
+    db_sess = db_session.create_session()
+    event = db_sess.query(Event).filter(Event.id == id).first()
+    print(event)
+    return render_template('podrobnee.html', title='Подробнее об карточки', event=event)
+
+# страница добавление новостей
+@app.route('/addnewsform', methods=['GET', 'POST'])
+def addnewsform():
+    form = AddEventForm()
+    db_sess = db_session.create_session()
+    userr = db_sess.query(User).filter(User.is_active == True).first()
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        news = News(
+            name=form.name.data,
+            description=form.description.data,
+            data=form.data.data
+        )
+        db_sess.add(news)
+        db_sess.commit()
+        return redirect("/personal_account")
+    return render_template('addnewsform.html', title='Добавление новостей', form=form, user=userr)
+
+# страница добавление активность
 @app.route('/addeventform', methods=['GET', 'POST'])
 def addeventform():
     form = AddEventForm()
@@ -79,7 +107,6 @@ def addeventform():
             name=form.name.data,
             description=form.description.data,
             organizers=form.organizers.data,
-            email=form.email.data,
             data=form.data.data,
             time=form.time.data,
             genres=form.genres.data
@@ -138,7 +165,7 @@ def reqister():
     return render_template('register.html', title='Регистрация', form=form)
 
 
-# Страница для выхода\
+# Страница для выхода
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     db_sess = db_session.create_session()

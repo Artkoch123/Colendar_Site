@@ -32,7 +32,7 @@
                 <!-- Карточка мероприятия 1 -->
 
                  {% for item in event %}
-                <div class="event-card">
+                <div class="event-card" data-category={{ item.genres }}>
                     <img src={{ item.put_foto }}
                         alt="Фото мероприятия" class="event-image">
                     <div class="event-content">
@@ -64,9 +64,13 @@
                                     stroke-linejoin="round" />
                             </svg>
                             {{ item.data }}, {{ item.time }}
+                            </div>
+                            <form action="/select_act/{{ item.id }}" method="post">
+                                <button class="button" type="submit">
+                                    <p>Подробнее</p>
+                                </button>
+                            </form>
                         </div>
-                        <a href="#" class="event-button">Подробнее</a>
-                    </div>
                 </div>
                 {% endfor %}
 

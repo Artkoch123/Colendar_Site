@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+<html lang="en">
+    <main class="event-details">
+        <!-- Слайдер изображений -->
+        <div class="event-slider">
+            <div class="slider-images">
+                <img src="https://avatars.mds.yandex.net/i?id=c6aa50121d80ac59c13f5af535c5787e30ca90c3-7552332-images-thumbs&n=13"
+                    alt="Фото мероприятия" class="slider-image active">
+                <img src="https://avatars.mds.yandex.net/i?id=ba05c5a3615a58c6da2def145a54e120b717e062-6961938-images-thumbs&n=13"
+                    alt="Фото мероприятия 2" class="slider-image">
+                <img src="https://avatars.mds.yandex.net/i?id=a94d968b1a293c873f388ed7c64c1c82d05e5f22-5588720-images-thumbs&n=13"
+                    alt="Фото мероприятия 3" class="slider-image">
+            </div>
+            <div class="slider-controls">
+                <button class="slider-button prev">&#10094;</button>
+                <button class="slider-button next">&#10095;</button>
+            </div>
+        </div>
+    {% for item in event %}
+        <!-- Информация о мероприятии -->
+        <div class="event-info">
+            <h1 class="event-title">{{ item.name }}</h1>
+            <p class="event-description">
+                {{ item.description }}
+            </p>
+            <div class="event-details-section">
+                <div class="event-detail">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 2V5" stroke="#888" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M16 2V5" stroke="#888" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M3.5 9.09H20.5" stroke="#888" stroke-width="1.5" stroke-linecap="round" />
+                        <path
+                            d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+                            stroke="#888" stroke-width="1.5" />
+                    </svg>
+                    <span>Дата и время: {{ item.data }}, {{ item.time }}</span>
+                </div>
+                <div class="event-detail">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
+                            stroke="#888" stroke-width="1.5" />
+                    </svg>
+                    <span>Организатор: Компания "{{ item.description }}"</span>
+                </div>
+            </div>
+            <!-- Блок со списком участников -->
+            <div class="participants-section">
+                <div class="participants-header" onclick="toggleParticipantsList()">
+                    <h2>Список участников</h2>
+                    <span id="arrow-icon">▼</span>
+                </div>
+                <ul class="participants-list" id="participants-list">
+                    {% for a in item.participants %}
+                    <li>a</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Мероприятия</h3>
+                <ul>
+                    <li><a href="#">Конференции</a></li>
+                    <li><a href="#">Вебинары</a></li>
+                    <li><a href="#">Мастер-классы</a></li>
+                    <li><a href="#">Нетворкинг</a></li>
+                    <li><a href="#">Все мероприятия</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>О нас</h3>
+                <ul>
+                    <li><a href="#">О платформе</a></li>
+                    <li><a href="#">Партнеры</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Обратная связь</h3>
+                <ul>
+                    <li><a href="#">Телефон: +7 800 888 88 88</a></li>
+                    <li><a href="#">Почта: qwerty@mail.ru</a></li>
+                </ul>
+            </div>
+    </footer>
+    {% endfor %}
+    <script src="/scripts/slider.js"></script>
+</body>
+
+</html>
+{% endblock %}

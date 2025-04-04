@@ -16,7 +16,7 @@ class Event(SqlAlchemyBase, UserMixin):
     organizers = sqlalchemy.Column(sqlalchemy.String, index=True, unique=True, nullable=True)
     data = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     time = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    genres = sqlalchemy.Column(sqlalchemy.String, nullable=True),
+    genres = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     put_foto = sqlalchemy.Column(sqlalchemy.String, nullable=True)
 
     def __repr__(self):

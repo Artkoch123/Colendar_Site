@@ -9,14 +9,15 @@
                 <h2 class="section-title">Последние новости</h2>
                 <div class="news-list">
                     <!-- Новость 1 -->
+
+                    {% for item in news %}
                     <article class="news-item">
                         <a href="#" class="news-item">
                         <img src="https://avatars.mds.yandex.net/i?id=a7f4545c1f90cf1ac68f7b85f3816f2dab519a93-9149086-images-thumbs&n=13" alt="Изображение новости" class="news-image">
                         <div class="news-content">
-                            <h3 class="news-title">Цифровизация бизнеса: новые тренды</h3>
+                            <h3 class="news-title">{{ item.name }}</h3>
                             <p class="news-description">
-                                В статье рассматриваются последние тенденции в области цифровизации бизнеса.
-                                Узнайте, как компании внедряют инновации для повышения эффективности.
+                                {{ item.description }}
                             </p>
                             <div class="news-date">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,57 +26,13 @@
                                     <path d="M3.5 9.09H20.5" stroke="#888" stroke-width="1.5" stroke-linecap="round" />
                                     <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z" stroke="#888" stroke-width="1.5" />
                                 </svg>
-                                15 октября 2023
+                                {{ item.data }}
                             </div>
                         </div>
                     </a>
                     </article>
-                
-                    <!-- Новость 2 -->
-                    <article class="news-item">
-                        <a href="#" class="news-item">
-                        <img src="https://avatars.mds.yandex.net/i?id=a7f4545c1f90cf1ac68f7b85f3816f2dab519a93-9149086-images-thumbs&n=13" alt="Изображение новости" class="news-image">
-                        <div class="news-content">
-                            <h3 class="news-title">AI в маркетинге: будущее уже здесь</h3>
-                            <p class="news-description">
-                                Искусственный интеллект становится неотъемлемой частью современного маркетинга.
-                                Разберём реальные кейсы и их результаты.
-                            </p>
-                            <div class="news-date">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8 2V5" stroke="#888" stroke-width="1.5" stroke-linecap="round" />
-                                    <path d="M16 2V5" stroke="#888" stroke-width="1.5" stroke-linecap="round" />
-                                    <path d="M3.5 9.09H20.5" stroke="#888" stroke-width="1.5" stroke-linecap="round" />
-                                    <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z" stroke="#888" stroke-width="1.5" />
-                                </svg>
-                                20 октября 2023
-                            </div>
-                        </div>
-                    </a>
-                    </article>
-    
-                    <!-- Новость 3 -->
-                    <article class="news-item">
-                        <a href="#" class="news-item"></a>
-                        <img src="https://avatars.mds.yandex.net/i?id=a7f4545c1f90cf1ac68f7b85f3816f2dab519a93-9149086-images-thumbs&n=13" alt="Изображение новости" class="news-image">
-                        <div class="news-content">
-                            <h3 class="news-title">Как создать успешную стратегию нетворкинга</h3>
-                            <p class="news-description">
-                                Эффективные советы по построению деловых связей и укреплению профессиональной сети.
-                            </p>
-                            <div class="news-date">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8 2V5" stroke="#888" stroke-width="1.5" stroke-linecap="round" />
-                                    <path d="M16 2V5" stroke="#888" stroke-width="1.5" stroke-linecap="round" />
-                                    <path d="M3.5 9.09H20.5" stroke="#888" stroke-width="1.5" stroke-linecap="round" />
-                                    <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z" stroke="#888" stroke-width="1.5" />
-                                </svg>
-                                25 октября 2023
-                            </div>
-                        </div>
-                    </a>
-                    </article>
-                </div>
+                     {% endfor %}
+                   </div>
             </div>
         </section>
     </main>

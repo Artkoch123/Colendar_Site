@@ -6,5 +6,5 @@ from wtforms.validators import DataRequired
 class AddEventForm(FlaskForm):
     name = EmailField('Название', validators=[DataRequired()])
     description = StringField('Описание', validators=[DataRequired()])
-    data = TimeField('Дата', validators=[DataRequired()])
-    submit = SubmitField('Опубликовать событие')
+    data = StringField('Дата', validators=[DataRequired()])
+    submit = SubmitField('Опубликовать новость')
